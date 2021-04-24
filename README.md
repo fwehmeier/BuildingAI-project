@@ -60,12 +60,11 @@ Of course it depends on "data scientists" extracting event log data and enhancin
 All the above describe usages contribute to making transport and supply chain processes more efficient avoiding unexpected impacts, better use of capacity and less "expensive" and less eficient / sustainable counter-measures in case of anomalities.
 
 
-Images will make your README look nice!
-Once you upload an image to your repository, you can link link to it like this (replace the URL with file path, if you've uploaded an image to Github.)
-![Container vessel](https://pixabay.com/de/photos/hamburg-hafen-schiff-container-212405/)
 
-If you need to resize images, you have to use an HTML tag, like this:
-<img src="https://pixabay.com/de/photos/hamburg-hafen-schiff-container-212405/" width="300">
+
+![Container ship](https://upload.wikimedia.org/wikipedia/commons/2/20/Container_ship_Yorktown_Express_%282%29.jpg)
+
+
 
 This is how you create code examples:
 ```
@@ -110,5 +109,5 @@ How could your project grow and become something even more? What kind of skills,
 * list here the sources of inspiration 
 * do not use code, images, data etc. from others without permission
 * when you have permission to use other people's materials, always mention the original creator and the open source / Creative Commons licence they've used
-  <br>For example: [Sleeping Cat on Her Back by Umberto Salvagnin](https://commons.wikimedia.org/wiki/File:Sleeping_cat_on_her_back.jpg#filelinks) / [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)
+  <br>For example: [Tvabutzku1234, Public domain, via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Container_ship_Yorktown_Express_(2).jpg#filelinks) / [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)
 * etc
