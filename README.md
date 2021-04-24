@@ -86,14 +86,33 @@ main()
 
 
 ## Data sources and AI methods
-Where does your data come from? Do you collect it yourself or do you use data collected by someone else?
-If you need to use links, here's an example:
-[Twitter API](https://developer.twitter.com/en/docs)
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+Data comes from the event log of the transport management system, CargoWise One by WiseTech Global Ltd., of my company SENATOR INTERNATONAL.
+Due to confidentiality data is anonymized, real IDs are replaced and event details are generalized.
+In the first phase tere is only a reduced subset of event data to work-out the methods of data cleansing and sorting and data analytics.
+
+I have collected manually 19 shipment event log files and stripped them to the necessary data used here for a special trade lane between China (CN) and ermany (DE). 
+
+The data is provided in an ecxel file of following sturcture
+
+| Shipment ID | EVENT Descr. | Event time stamp 
+| ----------- | ------------ | ----------------
+| ID1         | Event 1(ID1) | Time 1 (ID1)
+| ...         | ...          | ...
+| ID1         | Event n(ID1) | Time n (ID1)
+| ID2         | Event 1(ID2) | Time 1 (ID2)
+| ...         | ...          | ...
+| ID2         | Event m(ID2) | Time m (ID2)
+| ...         | ...          | ...
+| ...         | ...          | ...
+
+| IDk         | Event 1(IDk) | Time 1 (IDk)
+| ...         | ...          | ...
+| IDk         | Event l(IDk) | Time l (IDk)
+
+
+First step will be to find out for all sample file which are the most common events, how often do they appear and which are single events or repeating events. Is there a common or most likely order of events.
+
 
 ## Challenges
 
