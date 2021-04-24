@@ -115,12 +115,18 @@ First step will be to find out for all sample file which are the most common eve
 
 ## Challenges
 
-What does your project _not_ solve? Which limitations and ethical considerations should be taken into account when deploying a solution like this?
+This project is a learning project for me - I have not put  much effort in finding out whether there are already established tools like neuronal network frame works where I could just feed in the data into but the main challenge at the moment is to do the best and reasonable data preparation.
+For my company this approach is - as far as I know - new. It was not looked at event data in this way yet.
+Of course it would be possible to involve  AI experts and consultants to solve the topics in question, but everybody knows the limitations the "Pros and Cons" of external solutions.
+
+Then an experimental and interative process will start to find the appropriate AI method for the different tasks  like preditions, process mining and anomaly recognition.
+The outcome is not yet determined.
+
+The ethical impact of this approach is positive: If the expected goal is reached there would be an increase in sustainability of supply chains. Of course all increases of productivity might impact the situation of employment (less jobs, more stress on employees, more stupid routine work left) but currently it is very hard to find enough staff for this kind of jobs, so a relief by reducing inefficient processes  could not harm.
 
 ## What next?
 
-How could your project grow and become something even more? What kind of skills, what kind of assistance would you  need to move on? 
-
+Starting the journey to apply methods of AI to find out their suitability for solving the above mentioned problems  and reaching the corresponding goals.
 
 ## Acknowledgments
 
