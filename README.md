@@ -62,10 +62,10 @@ All the above describe usages contribute to making transport and supply chain pr
 
 Images will make your README look nice!
 Once you upload an image to your repository, you can link link to it like this (replace the URL with file path, if you've uploaded an image to Github.)
-![Cat](https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg)
+![Container vessel](https://pixabay.com/de/photos/hamburg-hafen-schiff-container-212405/)
 
 If you need to resize images, you have to use an HTML tag, like this:
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg" width="300">
+<img src="https://pixabay.com/de/photos/hamburg-hafen-schiff-container-212405/" width="300">
 
 This is how you create code examples:
 ```
