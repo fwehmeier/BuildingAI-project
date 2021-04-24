@@ -107,7 +107,7 @@ The data is provided in an ecxel file of following sturcture
 | ...         | ...          | ...
 | IDk         | Event 1(IDk) | Time 1 (IDk)
 | ...         | ...          | ...
-| IDk         | Event l(IDk) | Time l (IDk)
+| IDk         | Event p(IDk) | Time p (IDk)
 
 
 First step will be to find out for all sample file which are the most common events, how often do they appear and which are single events or repeating events. Is there a common or most likely order of events.
