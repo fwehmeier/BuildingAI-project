@@ -68,20 +68,109 @@ All the above describe usages contribute to making transport and supply chain pr
 
 This is how you create code examples:
 ```
-def main():
-   countries = ['Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden']
-   pop = [5615000, 5439000, 324000, 5080000, 9609000]   # not actually needed in this exercise...
-   fishers = [1891, 2652, 3800, 11611, 1757]
+import math
+import random
+import numpy as np
+import io
+from io import StringIO
 
-   totPop = sum(pop)
-   totFish = sum(fishers)
+#DATA Block
 
-   # write your solution here
+text = '''Humpty Dumpty sat on a wall
+Humpty Dumpty had a great fall
+all the king's horses and all the king's men
+couldn't put Humpty together again'''
 
-   for i in range(len(countries)):
-      print("%s %.2f%%" % (countries[i], 100.0))    # current just prints 100%
+def distance(row1, row2):
+    # replace the following by a function that returns the sum of differences between the
+    # words in row1 and row2. this is the Manhattan distance.
+    # you can assume that row1 and row2 are list with equal length, containing numeric values.
+    dist_h = 0
+    for i in range (len(row1)):
+        dist_h += abs(row1[i]-row2[i])
+    return dist_h
 
-main()
+def all_pairs(data,N):
+    # this calculates the distances between all sentence pairs in the data
+    # you do not need to change this
+    i=0
+    j=0
+    dist_arr = np.empty((N, N), dtype=np.float)
+    for i in range (0, N):
+        for j in range (0, N):
+           if j == i:
+                dist_arr[i][j]=np.inf
+           else:
+                dist_arr[i][j]= distance (data[i], data[j])
+    #print(dist_arr)
+    return dist_arr
+
+def find_nearest_pair(data):
+    N = len(data)  
+    dist = np.empty((N, N), dtype=np.float)
+    dist = np.array(all_pairs(data,N))
+    #print(dist)   
+    print(np.unravel_index(np.argmin(dist), dist.shape))
+
+
+
+def main(text):
+    # tasks your code should perform:
+
+    # 1. split the text into words, and get a list of unique words that appear in it
+    # a short one-liner to separate the text into sentences (with words lower-cased to make words equal 
+    # despite casing) can be done with 
+    # docs = [line.lower().split() for line in text.split('\n')]
+    docs = [line.lower().split() for line in text.split('\n')]
+    #print (docs)
+    N = len(docs)
+    #print (N)
+    # create the vocabulary: the list of words that appear at least once
+    vocabulary = list(set(text.lower().split()))
+    #print (vocabulary)
+    
+    # 2. go over each unique word and calculate its term frequency, and its document frequency
+    df = {}
+    tf = {}  
+
+    for word in vocabulary:
+        # tf: number of occurrences of word w in document divided by document length
+        # note: tf[word] will be a list containing the tf of each word for each document
+        # for example tf['he'][0] contains the term frequence of the word 'he' in the first
+        # document
+        tf[word] = [doc.count(word)/len(doc) for doc in docs]
+
+        # df: number of documents containing word w
+        df[word] = sum([word in doc for doc in docs])/N
+    #print (tf)
+    #print (df)   
+
+    # 3. after you have your term frequencies and document frequencies, go over each line in the text and 
+    # calculate its TF-IDF representation, which will be a vector
+    tfidf_array = []
+    for doc_index, doc in enumerate(docs):
+        tfidf = []
+        #print (doc_index)
+        for word in vocabulary:
+            # ADD THE CORRECT FORMULA HERE. Remember to use the base 10 logarithm: math.log(x, 10)
+            #print (word)
+            tfidf.append(tf[word][doc_index]*math.log(1/df[word],10)) 
+
+        #print(tfidf)  
+        tfidf_array.append(tfidf)
+    #print ('--------------------------------------------')
+    #print (tfidf_array)
+
+    # 4. after you have calculated the TF-IDF representations for each line in the text, you need to
+    # calculate the distances between each line to find which are the closest.
+
+    find_nearest_pair(tfidf_array)
+    print (tfidf_array)
+
+
+main(text)
+
+
 ```
 
 
