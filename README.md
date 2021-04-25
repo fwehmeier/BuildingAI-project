@@ -112,6 +112,14 @@ The data is provided in an ecxel file of following sturcture
 
 First step will be to find out for all sample file which are the most common events, how often do they appear and which are single events or repeating events. Is there a common or most likely order of events.
 
+## First solution approach / Code example
+
+While working with the Event Data Logs I found the analogy to working with text in the course Building AI: https://buildingai.elementsofai.com/Machine-Learning/working-with-text:
+I have transformed for each shipment the event into the list of events like a list of words in each sentence and applied the "bag of words" / "Term Frequency Inverse Document Frequency (tf-idf)" method.
+
+I have used the code template from the course.
+
+
 
 ## Challenges
 
@@ -126,7 +134,7 @@ The ethical impact of this approach is positive: If the expected goal is reached
 
 ## What next?
 
-Starting the journey to apply methods of AI to find out their suitability for solving the above mentioned problems  and reaching the corresponding goals.
+Starting the journey to apply different methods of AI to find out their suitability for solving the above mentioned problems  and reaching the corresponding goals.
 
 ## Acknowledgments
 
@@ -134,4 +142,5 @@ Starting the journey to apply methods of AI to find out their suitability for so
 * do not use code, images, data etc. from others without permission
 * when you have permission to use other people's materials, always mention the original creator and the open source / Creative Commons licence they've used
   <br>For example: [Tvabutzku1234, Public domain, via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Container_ship_Yorktown_Express_(2).jpg#filelinks) / [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)
-* etc
+* Code template from exercise 18 of course Building AI, exercise to train "Term Frequency Inverse Document Frequency (tf-idf)"
+* https://buildingai.elementsofai.com/Machine-Learning/working-with-text
