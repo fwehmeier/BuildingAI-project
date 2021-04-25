@@ -68,18 +68,35 @@ All the above describe usages contribute to making transport and supply chain pr
 
 This is how you create code examples:
 ```
+
 import math
 import random
 import numpy as np
 import io
 from io import StringIO
 
+
 #DATA Block
 
-text = '''Humpty Dumpty sat on a wall
-Humpty Dumpty had a great fall
-all the king's horses and all the king's men
-couldn't put Humpty together again'''
+events = '''E1 E2 E3 E4 E5 E5 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16 E5 E5 E17 E18 E4 E19 E19 E20 E21 E22 E23 E17 E24 E25 E26 E27 E28 E26 E29 E30 E31 E32 E32 E33 E34 E35 E36 E37 E38 E39                        
+E1 E2 E10 E5 E4 E13 E14 E16 E5 E5 E17 E3 E6 E7 E8 E9 E11 E12 E40 E14 E11 E13 E18 E4 E41 E42 E19 E19 E20 E43 E22 E23 E17 E24 E25 E26 E27 E26 E28 E31 E31 E32 E33 E34 E35 E37 E38 E39 E24                       
+E1 E2 E4 E4 E44 E5 E6 E7 E8 E9 E45 E5 E10 E46 E46 E46 E16 E5 E5 E17 E17 E11 E12 E14 E15 E13 E14 E47 E18 E14 E48 E48 E48 E49 E46 E46 E14 E47 E50 E51 E24 E52 E3 E20 E43 E48 E48 E17 E25 E23 E22 E53 E14 E28 E31 E31 E32 E33 E33 E33 E34 E30 E35 E36 E29 E37 E54 E39 E26 E27 E55 E56
+E1 E2 E4 E5 E6 E8 E45 E5 E10 E16 E5 E5 E17 E14 E13 E11 E14 E47 E18 E4 E14 E3 E17 E19 E19 E20 E43 E14 E47 E24 E52 E25 E23 E22 E53 E14 E28 E32 E31 E33 E34 E35 E26 E27 E26 E26 E55 E37 E38 E37 E29 E30 E36 E39                  
+E2 E1 E4 E44 E4 E14 E5 E6 E7 E8 E9 E45 E14 E11 E12 E14 E13 E15 E14 E10 E16 E5 E18 E24 E18 E4 E14 E48 E48 E48 E48 E48 E48 E46 E46 E46 E52 E3 E49 E23 E22 E47 E50 E51 E46 E20 E43 E25 E17 E28 E30 E31 E32 E33 E34 E29 E26 E27 E35 E36 E37 E38 E39 E53        
+E2 E3 E4 E5 E6 E7 E8 E9 E10 E14 E13 E11 E12 E15 E16 E5 E5 E17 E18 E4 E19 E19 E20 E43 E23 E22 E17 E24 E25 E26 E27 E28 E26 E29 E30 E31 E31 E32 E33 E34 E35 E36 E37 E38 E39                           
+E1 E2 E4 E14 E5 E6 E7 E8 E9 E45 E14 E14 E13 E11 E12 E15 E14 E16 E5 E5 E10 E17 E18 E4 E14 E52 E22 E23 E3 E17 E47 E24 E24 E20 E43 E25 E24 E28 E30 E31 E32 E32 E33 E34 E35 E36 E29 E26 E27 E37 E38 E39 E53                   
+E2 E1 E4 E4 E18 E4 E5 E14 E5 E10 E57 E14 E14 E13 E11 E16 E5 E18 E4 E14 E17 E52 E47 E14 E49 E3 E50 E58 E20 E43 E25 E22 E23 E28 E31 E31 E32 E33 E34 E35 E26 E27 E53                             
+E1 E2 E4 E59 E6 E7 E8 E9 E5 E10 E16 E5 E5 E17 E11 E12 E15 E3 E60 E61 E62 E63 E14 E13 E64 E65 E66 E18 E4 E17 E19 E19 E20 E43 E25 E24 E23 E22 E26 E27 E28 E30 E31 E33 E31 E32 E33 E34 E31 E32 E33 E34 E35 E36 E38 E37 E39               
+E2 E1 E56 E5 E6 E7 E8 E9 E67 E10 E12 E13 E15 E11 E16 E68 E5 E24 E24 E4 E17 E69 E70 E71 E72 E73 E73 E25 E23 E3 E22 E27 E28 E32 E31 E31 E33 E34 E35 E27 E29 E74 E30 E36 E37 E38 E75 E39                        
+E1 E2 E4 E6 E59 E5 E8 E7 E9 E11 E10 E14 E13 E16 E5 E5 E17 E12 E15 E4 E76 E77 E78 E24 E79 E80 E81 E81 E25 E22 E3 E23 E27 E27 E29 E26 E58 E82 E20 E43 E28 E31 E32 E33 E34 E30 E35 E38 E37 E36 E39                     
+E2 E1 E5 E4 E13 E14 E11 E10 E16 E5 E5 E17 E83 E42 E57 E18 E4 E14 E13 E23 E3 E14 E14 E43 E20 E84 E47 E14 E28 E22 E52 E28 E31 E31 E32 E33 E34 E58 E85 E35 E26 E27                              
+E1 E10 E4 E2 E5 E11 E16 E5 E5 E17 E17 E14 E13 E47 E14 E4 E24 E47 E68 E47 E17 E14 E81 E52 E3 E58 E20 E43 E86 E86 E87 E25 E53 E23 E22 E14 E28 E32 E35 E88 E31 E33 E34 E82 E26 E27 E55                         
+E1 E2 E10 E4 E5 E11 E16 E5 E5 E17 E14 E13 E48 E4 E47 E3 E14 E47 E20 E43 E89 E47 E14 E23 E90 E17 E84 E58 E52 E53 E91 E14 E31 E31 E33 E34 E26 E55                                  
+E92 E1 E93 E2 E5 E5 E94 E95 E96 E96 E97 E98 E98 E96 E96 E16 E5 E11 E14 E13 E5 E47 E96 E14 E47 E96 E47 E96 E96 E99 E98 E98 E24 E24 E4 E100 E14 E52 E101 E58 E96 E102 E103 E104 E96 E53 E96 E105 E96 E14 E28 E26 E27 E106 E35 E107 E55 E82 E108 E109            
+E1 E2 E59 E6 E7 E4 E5 E8 E9 E10 E11 E12 E40 E13 E14 E42 E16 E5 E5 E83 E17 E17 E11 E14 E13 E18 E4 E14 E3 E19 E19 E20 E43 E17 E110 E28 E24 E71 E72 E111 E72 E25 E22 E23 E53 E53 E69 E112 E26 E27 E26 E28 E31 E32 E33 E33 E34 E29 E30 E35 E113 E36 E37 E38 E39       
+E2 E114 E93 E92 E1 E5 E5 E94 E95 E6 E96 E67 E8 E7 E9 E97 E98 E98 E96 E96 E11 E12 E15 E16 E5 E14 E13 E5 E47 E96 E14 E96 E96 E96 E99 E98 E98 E24 E24 E4 E58 E100 E14 E4 E52 E101 E102 E103 E104 E96 E96 E53 E14 E96 E105 E29 E115 E28 E30 E26 E27 E35 E116 E107 E106 E36 E55 E38 E37 E39 E82 E108
+E1 E2 E4 E10 E5 E6 E7 E8 E9 E45 E11 E12 E16 E5 E5 E17 E14 E13 E15 E14 E14 E14 E47 E18 E4 E14 E3 E17 E19 E19 E20 E43 E14 E47 E24 E52 E25 E23 E22 E53 E14 E28 E31 E31 E32 E33 E34 E35 E26 E29 E30 E36 E27 E55 E38 E37 E39               
+E10 E1 E6 E7 E8 E9 E11 E12 E15 E14 E13 E14 E14 E117 E118 E25 E28 E14 E3 E23 E22 E71 E69 E29 E28 E30 E35 E36 E38 E37 E39 E26 E27                                       																																	'''
 
 def distance(row1, row2):
     # replace the following by a function that returns the sum of differences between the
@@ -109,25 +126,25 @@ def find_nearest_pair(data):
     N = len(data)  
     dist = np.empty((N, N), dtype=np.float)
     dist = np.array(all_pairs(data,N))
-    #print(dist)   
+    print(dist)   
     print(np.unravel_index(np.argmin(dist), dist.shape))
 
 
 
-def main(text):
+def main(events):
     # tasks your code should perform:
 
     # 1. split the text into words, and get a list of unique words that appear in it
     # a short one-liner to separate the text into sentences (with words lower-cased to make words equal 
     # despite casing) can be done with 
     # docs = [line.lower().split() for line in text.split('\n')]
-    docs = [line.lower().split() for line in text.split('\n')]
+    docs = [line.lower().split() for line in events.split('\n')]
     #print (docs)
     N = len(docs)
     #print (N)
     # create the vocabulary: the list of words that appear at least once
-    vocabulary = list(set(text.lower().split()))
-    #print (vocabulary)
+    vocabulary = list(set(events.lower().split()))
+    print (vocabulary)
     
     # 2. go over each unique word and calculate its term frequency, and its document frequency
     df = {}
@@ -165,11 +182,12 @@ def main(text):
     # calculate the distances between each line to find which are the closest.
 
     find_nearest_pair(tfidf_array)
-    print (tfidf_array)
+    #print (tfidf_array)
 
 
-main(text)
+main(events)
 
+  
 
 ```
 
