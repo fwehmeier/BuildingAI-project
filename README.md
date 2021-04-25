@@ -67,6 +67,11 @@ All the above describe usages contribute to making transport and supply chain pr
 
 
 This is how you create code examples:
+
+This codes returns 
+1) the number of shipments (rows in the event list)
+2) the array of distances between the shipments using "Term Frequency Inverse Document Frequency (tf-idf)" method.
+3) the pair of shipments with minimum distance.
 ```
 
 import math
@@ -99,9 +104,9 @@ E1 E2 E4 E10 E5 E6 E7 E8 E9 E45 E11 E12 E16 E5 E5 E17 E14 E13 E15 E14 E14 E14 E4
 E10 E1 E6 E7 E8 E9 E11 E12 E15 E14 E13 E14 E14 E117 E118 E25 E28 E14 E3 E23 E22 E71 E69 E29 E28 E30 E35 E36 E38 E37 E39 E26 E27                                       																																	'''
 
 def distance(row1, row2):
-    # replace the following by a function that returns the sum of differences between the
-    # words in row1 and row2. this is the Manhattan distance.
-    # you can assume that row1 and row2 are list with equal length, containing numeric values.
+    # The function returns the sum of differences between the
+    # events in row1 and row2. this is the Manhattan distance.
+    # Row1 and row2 are lists with equal length, containing numeric values.
     dist_h = 0
     for i in range (len(row1)):
         dist_h += abs(row1[i]-row2[i])
@@ -109,7 +114,6 @@ def distance(row1, row2):
 
 def all_pairs(data,N):
     # this calculates the distances between all sentence pairs in the data
-    # you do not need to change this
     i=0
     j=0
     dist_arr = np.empty((N, N), dtype=np.float)
@@ -126,32 +130,32 @@ def find_nearest_pair(data):
     N = len(data)  
     dist = np.empty((N, N), dtype=np.float)
     dist = np.array(all_pairs(data,N))
+    print ('-------------------')
     print(dist)   
+    print ('-------------------')
     print(np.unravel_index(np.argmin(dist), dist.shape))
 
 
 
 def main(events):
-    # tasks your code should perform:
-
-    # 1. split the text into words, and get a list of unique words that appear in it
-    # a short one-liner to separate the text into sentences (with words lower-cased to make words equal 
+    # 1. split the list of events into single events, and get a list of unique events that appear in it
+    # a short one-liner to separate the list into a list per shipments (with events lower-cased to make events equal 
     # despite casing) can be done with 
     # docs = [line.lower().split() for line in text.split('\n')]
     docs = [line.lower().split() for line in events.split('\n')]
     #print (docs)
     N = len(docs)
-    #print (N)
-    # create the vocabulary: the list of words that appear at least once
+    print (N)
+    # create the event vocabulary: the list of events that appear at least once
     vocabulary = list(set(events.lower().split()))
-    print (vocabulary)
+    #print (vocabulary)
     
-    # 2. go over each unique word and calculate its term frequency, and its document frequency
+    # 2. go over each unique events and calculate its term frequency, and its document frequency
     df = {}
     tf = {}  
 
     for word in vocabulary:
-        # tf: number of occurrences of word w in document divided by document length
+        # tf: number of occurrences of events/word w in document divided by document length
         # note: tf[word] will be a list containing the tf of each word for each document
         # for example tf['he'][0] contains the term frequence of the word 'he' in the first
         # document
@@ -186,6 +190,7 @@ def main(events):
 
 
 main(events)
+
 
   
 
