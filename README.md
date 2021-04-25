@@ -207,19 +207,23 @@ I have collected manually 19 shipment event log files and stripped them to the n
 
 The data is provided in an ecxel file of following sturcture
 
-| Shipment ID | EVENT Descr. | Event time stamp 
-| ----------- | ------------ | ----------------
-| ID1         | Event 1(ID1) | Time 1 (ID1)
-| ...         | ...          | ...
-| ID1         | Event n(ID1) | Time n (ID1)
-| ID2         | Event 1(ID2) | Time 1 (ID2)
-| ...         | ...          | ...
-| ID2         | Event m(ID2) | Time m (ID2)
-| ...         | ...          | ...
-| ...         | ...          | ...
-| IDk         | Event 1(IDk) | Time 1 (IDk)
-| ...         | ...          | ...
-| IDk         | Event p(IDk) | Time p (IDk)
+| Shipment ID | EVENT Descr. | EventID | Event time stamp 
+| ----------- | ------------ | ------- | ----------------
+| ID1         | Event 1(ID1) | EvID1   | Time 1 (ID1)
+| ...         | ...          | ...     | ...
+| ID1         | Event n(ID1) | ...     | Time n (ID1)
+| ID2         | Event 1(ID2) | ...     | Time 1 (ID2)
+| ...         | ...          | ...     | ...
+| ID2         | Event m(ID2) | ...     | Time m (ID2)
+| ...         | ...          | ...     | ...
+| ...         | ...          | ...     | ...
+| IDk         | Event 1(IDk) | ...     | Time 1 (IDk)
+| ...         | ...          | ...     | ...
+| IDk         | Event p(IDk) | EvIDq   | Time p (IDk)
+
+see attached files:
+202104_FCL_CN-DE_Data_anonyn_EventID.ods
+Eventlist_as_Text.txt
 
 
 First step will be to find out for all sample file which are the most common events, how often do they appear and which are single events or repeating events. Is there a common or most likely order of events.
