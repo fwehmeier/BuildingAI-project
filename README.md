@@ -101,7 +101,7 @@ E92 E1 E93 E2 E5 E5 E94 E95 E96 E96 E97 E98 E98 E96 E96 E16 E5 E11 E14 E13 E5 E4
 E1 E2 E59 E6 E7 E4 E5 E8 E9 E10 E11 E12 E40 E13 E14 E42 E16 E5 E5 E83 E17 E17 E11 E14 E13 E18 E4 E14 E3 E19 E19 E20 E43 E17 E110 E28 E24 E71 E72 E111 E72 E25 E22 E23 E53 E53 E69 E112 E26 E27 E26 E28 E31 E32 E33 E33 E34 E29 E30 E35 E113 E36 E37 E38 E39       
 E2 E114 E93 E92 E1 E5 E5 E94 E95 E6 E96 E67 E8 E7 E9 E97 E98 E98 E96 E96 E11 E12 E15 E16 E5 E14 E13 E5 E47 E96 E14 E96 E96 E96 E99 E98 E98 E24 E24 E4 E58 E100 E14 E4 E52 E101 E102 E103 E104 E96 E96 E53 E14 E96 E105 E29 E115 E28 E30 E26 E27 E35 E116 E107 E106 E36 E55 E38 E37 E39 E82 E108
 E1 E2 E4 E10 E5 E6 E7 E8 E9 E45 E11 E12 E16 E5 E5 E17 E14 E13 E15 E14 E14 E14 E47 E18 E4 E14 E3 E17 E19 E19 E20 E43 E14 E47 E24 E52 E25 E23 E22 E53 E14 E28 E31 E31 E32 E33 E34 E35 E26 E29 E30 E36 E27 E55 E38 E37 E39               
-E10 E1 E6 E7 E8 E9 E11 E12 E15 E14 E13 E14 E14 E117 E118 E25 E28 E14 E3 E23 E22 E71 E69 E29 E28 E30 E35 E36 E38 E37 E39 E26 E27                                       																																	'''
+E10 E1 E6 E7 E8 E9 E11 E12 E15 E14 E13 E14 E14 E117 E118 E25 E28 E14 E3 E23 E22 E71 E69 E29 E28 E30 E35 E36 E38 E37 E39 E26 E27                                                                                                                                                                         '''
 
 def distance(row1, row2):
     # The function returns the sum of differences between the
@@ -116,19 +116,19 @@ def all_pairs(data,N):
     # this calculates the distances between all sentence pairs in the data
     i=0
     j=0
-    dist_arr = np.empty((N, N), dtype=np.float)
+    dist_arr = np.empty((N, N), dtype=float)
     for i in range (0, N):
         for j in range (0, N):
-           if j == i:
+            if j == i:
                 dist_arr[i][j]=np.inf
-           else:
+            else:
                 dist_arr[i][j]= distance (data[i], data[j])
     #print(dist_arr)
     return dist_arr
 
 def find_nearest_pair(data):
     N = len(data)  
-    dist = np.empty((N, N), dtype=np.float)
+    dist = np.empty((N, N), dtype=float)
     dist = np.array(all_pairs(data,N))
     print ('-------------------')
     print(dist)   
@@ -193,6 +193,7 @@ main(events)
 
 
   
+
 
 ```
 
